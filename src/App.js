@@ -17,7 +17,7 @@ function App() {
 
         <Route exact path='/' component={ShopStore}/>
         <Route exact path='/order' component={Order}/>
-        <Route exact path='/timer' component={AddItem}/>
+        <Route exact path='/add-item' component={AddItem}/>
       </BrowserRouter>
     </div>
   );
