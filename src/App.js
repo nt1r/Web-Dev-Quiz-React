@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, NavLink} from "react-router-dom";
+import ShopStore from "./component/ShopStore";
+import Order from "./component/Order";
+import AddItem from "./component/AddItem";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <nav className={'nav'}>
+          <NavLink exact to={'/'} className={'nav_link'} activeClassName={'link_selected'}>商城</NavLink>
+          <NavLink exact to={'/order'} className={'nav_link'} activeClassName={'link_selected'}>订单</NavLink>
+          <NavLink exact to={'/add-item'} className={'nav_link'} activeClassName={'link_selected'}>添加商品</NavLink>
+        </nav>
+
+        <Route exact path='/' component={ShopStore}/>
+        <Route exact path='/order' component={Order}/>
+        <Route exact path='/timer' component={AddItem}/>
+      </BrowserRouter>
     </div>
   );
 }
